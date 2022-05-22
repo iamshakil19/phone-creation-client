@@ -3,7 +3,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 
 const Blogs = () => {
     return (
-        <div>
+        <div className=''>
             <Navbar></Navbar>
             <h2>This is blogs page</h2>
         </div>

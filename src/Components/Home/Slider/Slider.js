@@ -14,7 +14,7 @@ import { Pagination, Navigation } from "swiper";
 
 export default function App() {
     return (
-        <>
+        <div className="bg-white">
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -33,6 +33,6 @@ export default function App() {
                 <SwiperSlide><img src="https://i.ibb.co/BwBWpB9/slider3.jpg" alt="slider-img-5" /></SwiperSlide>
                 <SwiperSlide><img src="https://i.ibb.co/GQNPXNy/slider1.jpg" alt="slider-img-6" /></SwiperSlide>
             </Swiper>
-        </>
+        </div>
     );
 }

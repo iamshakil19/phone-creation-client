@@ -10,7 +10,7 @@ import Blogs from './Components/Blogs/Blogs';
 
 function App() {
   return (
-    <div>
+    <div className='bg-white'>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
