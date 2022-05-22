@@ -1,8 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import ActiveRoute from '../../ActiveRoute/ActiveRoute';
 import logo from '../../../Assets/Phone-Creation-black.png'
+import auth from '../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 const Navbar = () => {
+    const navigate = useNavigate()
+
+    const [user, loading, error] = useAuthState(auth);
+
+    const navigateTologin = () => {
+        navigate('/login')
+    }
+    const handleLogout = () => {
+        signOut(auth)
+    }
+
+
     return (
         <div className="">
             <div class="navbar bg-base-300 lg:px-24">
@@ -13,16 +28,37 @@ const Navbar = () => {
                         </label>
                         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><ActiveRoute to={'/home'}>Home</ActiveRoute></li>
+                            <li><ActiveRoute to="/blogs">Blogs</ActiveRoute></li>
                             <li><ActiveRoute to="/portfolio">Portfolio</ActiveRoute></li>
+                            <>
+                                {
+                                    user ?
+                                        <>
+                                            <button onClick={handleLogout} className='btn btn-sm'>Log Out</button>
+                                        </>
+                                        :
+                                        <button onClick={navigateTologin} className='btn btn-sm'>Login</button>
+                                }
+                            </>
                         </ul>
                     </div>
                     <Link to="/" class=" normal-case text-xl w-32 lg:w-44 my-auto block"><img src={logo} alt="" /></Link>
                 </div>
                 <div class="navbar-end hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
-                    <li><ActiveRoute to={'/home'} className="text-[17px]">Home</ActiveRoute></li>
+                        <li><ActiveRoute to={'/home'} className="text-[17px]">Home</ActiveRoute></li>
                         <li><ActiveRoute to="/blogs" className="text-[17px]">Blogs</ActiveRoute></li>
                         <li><ActiveRoute to="/portfolio" className="text-[17px]">Portfolio</ActiveRoute></li>
+                        <>
+                            {
+                                user ?
+                                    <>
+                                        <button onClick={handleLogout} className='btn btn-sm mt-2 ml-3'>Log Out</button>
+                                    </>
+                                    :
+                                    <button onClick={navigateTologin} className='btn btn-sm mt-2 ml-3'>Login</button>
+                            }
+                        </>
                     </ul>
                 </div>
             </div>

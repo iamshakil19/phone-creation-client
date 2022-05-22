@@ -8,7 +8,7 @@ const NotFound = () => {
         navigate('/')
     }
     return (
-        <div className='mx-auto'>
+        <div className='mx-auto h-screen'>
             <img className="mt-24 mb-4 sm:mt-16 w-[300px] sm:w-[500px] md:w-[700px] block mx-auto" src={notFoundImg} alt="" />
             <div className='mx-auto text-center'>
                 <button onClick={navigateToHome} className="btn mx-auto block text-center btn-sm md:btn">Go Home</button>
