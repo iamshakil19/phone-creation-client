@@ -7,6 +7,7 @@ import NotFound from './Components/NotFound/NotFound';
 import "swiper/css/bundle";
 import Portfolio from './Components/Portfolio/Portfolio';
 import Blogs from './Components/Blogs/Blogs';
+import Purchase from './Components/Purchase/Purchase';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
+        <Route path="/purchase/:id" element={<Purchase></Purchase>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 

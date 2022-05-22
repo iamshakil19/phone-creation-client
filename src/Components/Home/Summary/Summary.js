@@ -1,14 +1,14 @@
 import React from 'react';
-import userIcon from '../../Assets/user.png'
-import dollarIcon from '../../Assets/dollar.png'
-import countryIcon from '../../Assets/country.png'
-import reviewIcon from '../../Assets/review.png'
-import phoneIcon from '../../Assets/phone.gif'
+import userIcon from '../../../Assets/user.png'
+import dollarIcon from '../../../Assets/dollar.png'
+import countryIcon from '../../../Assets/country.png'
+import reviewIcon from '../../../Assets/review.png'
+import phoneIcon from '../../../Assets/phone.gif'
 
 const Summary = () => {
     return (
         <div className='text-center my-10 text-center lg:px-24'>
-            <h2 className='md:text-4xl text-2xl mb-8 font-bold uppercase '>Millions Business Trust Us</h2>
+            <h2 className='md:text-4xl text-2xl mb-8 font-bold uppercase'>Millions Business Trust Us</h2>
             <div class="w-full grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
                 <div className='border-2 w-64 h-28 flex items-center justify-center mx-auto rounded-md'>
