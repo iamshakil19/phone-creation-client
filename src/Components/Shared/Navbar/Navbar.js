@@ -21,6 +21,7 @@ const Navbar = () => {
                 <div class="navbar-end hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
                     <li><ActiveRoute to={'/home'} className="text-[17px]">Home</ActiveRoute></li>
+                        <li><ActiveRoute to="/blogs" className="text-[17px]">Blogs</ActiveRoute></li>
                         <li><ActiveRoute to="/portfolio" className="text-[17px]">Portfolio</ActiveRoute></li>
                     </ul>
                 </div>
