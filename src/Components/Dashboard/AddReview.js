@@ -10,7 +10,9 @@ const AddReview = () => {
         const rating = event.target.rating.value
         const text = event.target.text.value
         const img = user?.photoURL
-        const reviewData = { rating, text, img }
+        const name = user?.displayName
+        const reviewData = { rating, text, img, name }
+        console.log(reviewData);
 
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
