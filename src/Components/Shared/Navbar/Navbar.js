@@ -34,6 +34,7 @@ const Navbar = () => {
                                 {
                                     user ?
                                         <>
+                                            <li><ActiveRoute to="/dashboard" className="">Dashboard</ActiveRoute></li>
                                             <button onClick={handleLogout} className='btn btn-sm'>Log Out</button>
                                         </>
                                         :
@@ -53,6 +54,7 @@ const Navbar = () => {
                             {
                                 user ?
                                     <>
+                                        <li><ActiveRoute to="/dashboard" className="text-[17px]">Dashboard</ActiveRoute></li>
                                         <button onClick={handleLogout} className='btn btn-sm mt-2 ml-3'>Log Out</button>
                                     </>
                                     :

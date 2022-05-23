@@ -6,10 +6,11 @@ import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import Loading from '../Shared/Loading';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const Register = () => {
+    const navigate = useNavigate()
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
@@ -20,19 +21,21 @@ const Register = () => {
     }
     let signErrorMessage;
     if (error || googleError || updateError) {
-        signErrorMessage = <p className='text-red-500'>{googleError?.message}</p>
+        signErrorMessage = <p className='text-red-500'>{error.message || googleError?.message || updateError.message}</p>
     }
-    if (googleUser) {
-        console.log(googleUser.user);
+    if (user || googleUser) {
+        navigate('/')
     }
     const onSubmit = async data => {
-        console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
+
         sendEmailVerification()
         if (sendEmailVerification) {
             toast.success("Verification email sent");
         }
+
+
 
     };
 

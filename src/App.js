@@ -10,23 +10,30 @@ import Purchase from './Components/Purchase/Purchase';
 import ProtectedRoute from './Components/Shared/ProtectedRoute';
 import Login from './Components/LoginGroup/Login';
 import Register from './Components/LoginGroup/Register';
+import Dashboard from './Components/Dashboard/Dashboard';
+import MyOrders from './Components/Dashboard/MyOrders';
 
 function App() {
   return (
     <div className='bg-white'>
       <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-        <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
-        <Route path="/purchase/:id" element={
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/portfolio" element={<Portfolio />}></Route>
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard></Dashboard></ProtectedRoute>}>
+        <Route index element={<MyOrders/>}></Route>
+        <Route path='addReview' element={<MyOrders/>}></Route>
+        <Route path='profile' element={<MyOrders/>}></Route>
+        </Route>
+        <Route path="/purchase/:partsId" element={
           <ProtectedRoute>
             <Purchase></Purchase>
           </ProtectedRoute>
         }></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="*" element={<NotFound></NotFound>}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
 

@@ -1,6 +1,5 @@
 [
     {
-        "_id": 1,
         "img": "https://i.ibb.co/T8Xfw1T/ezgif-com-gif-maker-4.jpg",
         "name": "Processor",
         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dicta voluptates architecto sunt quaerat similique quia dolore itaque, consectetur vero",
@@ -9,7 +8,6 @@
         "price": 30
     },
     {
-        "_id": 2,
         "img": "https://i.ibb.co/fNV43pS/display-min-1.jpg",
         "name": "Display",
         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dicta voluptates architecto sunt quaerat similique quia dolore itaque, consectetur vero",
@@ -18,7 +16,6 @@
         "price": 30
     },
     {
-        "_id": 3,
         "img": "https://i.ibb.co/tpxx1p1/ezgif-com-gif-maker-2-1.jpg",
         "name": "Camera",
         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dicta voluptates architecto sunt quaerat similique quia dolore itaque, consectetur vero",
@@ -27,7 +24,6 @@
         "price": 30
     },
     {
-        "_id": 4,
         "img": "https://i.ibb.co/M1KK624/battery-1.jpg",
         "name": "Battery",
         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dicta voluptates architecto sunt quaerat similique quia dolore itaque, consectetur vero",
@@ -36,7 +32,6 @@
         "price": 30
     },
     {
-        "_id": 5,
         "img": "https://i.ibb.co/G0SK0Mn/ezgif-com-gif-maker-1-1.jpg",
         "name": "Camera Lens",
         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dicta voluptates architecto sunt quaerat similique quia dolore itaque, consectetur vero",
@@ -45,7 +40,6 @@
         "price": 30
     },
     {
-        "_id": 6,
         "img": "https://i.ibb.co/thLQhs1/ezgif-com-gif-maker-3-1.jpg",
         "name": "Motherboard",
         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dicta voluptates architecto sunt quaerat similique quia dolore itaque, consectetur vero",

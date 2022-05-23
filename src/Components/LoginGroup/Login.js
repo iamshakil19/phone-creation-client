@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Footer from '../Shared/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 import googleLogo from '../../Assets/google2.png'
@@ -6,10 +6,12 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import { useForm } from "react-hook-form";
-import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithEmailAndPassword, user, loading, error,
     ] = useSignInWithEmailAndPassword(auth);
@@ -23,7 +25,7 @@ const Login = () => {
     }
 
     if (user || googleUser) {
-        console.log(user.user, googleUser.user);
+        navigate(from, { replace: true });
     }
 
     const onSubmit = data => {
