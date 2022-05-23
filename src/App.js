@@ -23,11 +23,13 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/portfolio" element={<Portfolio />}></Route>
+
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard></Dashboard></ProtectedRoute>}>
         <Route index element={<MyOrders/>}></Route>
         <Route path='addReview' element={<AddReview/>}></Route>
         <Route path='profile' element={<MyProfile/>}></Route>
         </Route>
+        
         <Route path="/purchase/:partsId" element={
           <ProtectedRoute>
             <Purchase></Purchase>
