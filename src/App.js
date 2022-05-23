@@ -12,6 +12,8 @@ import Login from './Components/LoginGroup/Login';
 import Register from './Components/LoginGroup/Register';
 import Dashboard from './Components/Dashboard/Dashboard';
 import MyOrders from './Components/Dashboard/MyOrders';
+import AddReview from './Components/Dashboard/AddReview';
+import MyProfile from './Components/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -23,8 +25,8 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />}></Route>
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard></Dashboard></ProtectedRoute>}>
         <Route index element={<MyOrders/>}></Route>
-        <Route path='addReview' element={<MyOrders/>}></Route>
-        <Route path='profile' element={<MyOrders/>}></Route>
+        <Route path='addReview' element={<AddReview/>}></Route>
+        <Route path='profile' element={<MyProfile/>}></Route>
         </Route>
         <Route path="/purchase/:partsId" element={
           <ProtectedRoute>
