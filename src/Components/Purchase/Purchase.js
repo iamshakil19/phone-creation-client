@@ -7,6 +7,7 @@ import Footer from '../Shared/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 
 const Purchase = () => {
+    const [isDisabled, setDisabled] = useState(false);
     const [user, loading, error] = useAuthState(auth);
     const { partsId } = useParams()
     const [parts, setParts] = useState([])
@@ -26,7 +27,10 @@ const Purchase = () => {
         const email = event.target.email.value
         const quantity = event.target.quantity.value
         if (quantity < minimum || quantity > available) {
-            return toast.error(`Minimum order ${minimum} pieces and Maximum order ${available} pieces`)
+             setDisabled(true)
+            toast.error(`Minimum order ${minimum} pieces and Maximum order ${available} pieces`)
+            return
+
         }
         const totalCost = quantity * price
         const number = event.target.number.value
@@ -114,7 +118,7 @@ const Purchase = () => {
                                     </label>
                                     <input name='address' placeholder='Enter your address' type="text" class="input input-bordered w-full max-w-xs input-sm" required />
                                 </div>
-                                <input className='btn mt-3' type="submit" value="Place Order" />
+                                <input disabled={isDisabled} className='btn mt-3' type="submit" value="Place Order" />
                             </div>
                         </div>
                     </form>
