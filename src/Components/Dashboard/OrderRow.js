@@ -25,10 +25,8 @@ const OrderRow = ({ order, index, setDeleteOrder }) => {
             </td>
             <td>
             {
-                !paid ? 
+                !paid &&
                 <label onClick={() => setDeleteOrder(order)} for="delete-modal" class="btn btn-xs bg-red-500 border-0 hover:bg-red-600">Cancel</label>
-                :
-                ''
             }
             </td>
             <td>

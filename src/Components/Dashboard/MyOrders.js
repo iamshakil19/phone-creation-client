@@ -76,7 +76,6 @@ const MyOrders = () => {
                 deleteOrder && <DeleteModal
                     deleteOrder={deleteOrder}
                     setDeleteOrder={setDeleteOrder}
-                // setIsReload={setIsReload}
                 ></DeleteModal>
             }
         </div>

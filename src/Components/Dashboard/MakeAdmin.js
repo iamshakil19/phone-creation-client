@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query'
 import Loading from '../Shared/Loading';
+import AdminDeleteModal from './AdminDeleteModal';
 import MakeAdminRow from './MakeAdminRow';
 const MakeAdmin = () => {
-
-    const { data: users, isLoading } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const [deleteUser, setDeleteUser] = useState(null)
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`}
@@ -34,11 +35,20 @@ const MakeAdmin = () => {
                                 key={user._id}
                                 user={user}
                                 index={index + 1}
+                                refetch={refetch}
+                                setDeleteUser={setDeleteUser}
                             ></MakeAdminRow>)
                         }
                     </tbody>
                 </table>
             </div>
+            {
+                deleteUser && <AdminDeleteModal
+                deleteUser={deleteUser}
+                setDeleteUser={setDeleteUser}
+                refetch={refetch}
+                ></AdminDeleteModal>
+            }
         </div>
     );
 };

@@ -19,6 +19,7 @@ import MakeAdmin from './Components/Dashboard/MakeAdmin';
 import AddProduct from './Components/Dashboard/AddProduct';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
 import ManageProducts from './Components/Dashboard/ManageProducts';
+import RequireAdmin from './Components/Shared/RequireAdmin';
 
 function App() {
   return (
@@ -34,10 +35,10 @@ function App() {
           <Route path='myOrders' element={<MyOrders />}></Route>
           <Route path='addReview' element={<AddReview />}></Route>
           <Route path='payment/:orderId' element={<Payment/>}></Route>
-          <Route path='addProducts' element={<AddProduct/>}></Route>
-          <Route path='manageOrders' element={<ManageAllOrders/>}></Route>
-          <Route path='manageProducts' element={<ManageProducts/>}></Route>
-          <Route path='makeAdmin' element={<MakeAdmin/>}></Route>
+          <Route path='addProducts' element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
+          <Route path='manageOrders' element={<RequireAdmin><ManageAllOrders/></RequireAdmin>}></Route>
+          <Route path='manageProducts' element={<RequireAdmin><ManageProducts/></RequireAdmin>}></Route>
+          <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin/></RequireAdmin>}></Route>
         </Route>
 
         <Route path="/purchase/:partsId" element={

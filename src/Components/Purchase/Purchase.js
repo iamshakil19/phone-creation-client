@@ -11,7 +11,6 @@ const Purchase = () => {
     const [user, loading, error] = useAuthState(auth);
     const { partsId } = useParams()
     const [parts, setParts] = useState([])
-    const [totalCost, setTotalCost] = useState(0)
     const { img, name, minimum, available, price, text } = parts
     useEffect(() => {
         const url = `http://localhost:5000/parts/${partsId}`;
