@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import Loading from '../Shared/Loading';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useToken from '../Hooks/useToken';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -15,6 +16,8 @@ const Register = () => {
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [sendEmailVerification] = useSendEmailVerification(auth);
+    const [token] = useToken(user || googleUser)
+
     const { register, formState: { errors }, handleSubmit, getValues } = useForm();
     if (loading || googleLoading || updating) {
         return <Loading></Loading>
@@ -23,7 +26,7 @@ const Register = () => {
     if (error || googleError || updateError) {
         signErrorMessage = <p className='text-red-500'>{error.message || googleError?.message || updateError.message}</p>
     }
-    if (user || googleUser) {
+    if (token) {
         navigate('/')
     }
     const onSubmit = async data => {

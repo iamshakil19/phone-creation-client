@@ -27,7 +27,7 @@ const DeleteModal = ({ deleteOrder, setDeleteOrder }) => {
                     <h3 class="font-bold text-lg text-red-500">Are you sure you want to delete this order ?</h3>
                     <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
                     <div class="modal-action">
-                        <button onClick={() => handleDeleteOrder(_id)} className='btn bg-red-500 border-0 hover:bg-red-600'>Cancel</button>
+                        <button onClick={() => handleDeleteOrder(_id)} className='btn bg-red-500 border-0 hover:bg-red-600'>Confirm</button>
                         <label for="delete-modal" class="btn">Cancel</label>
                     </div>
                 </div>

@@ -14,6 +14,7 @@ const location = useLocation()
         navigate('/login')
     }
     const handleLogout = () => {
+        localStorage.removeItem('accessToken')
         signOut(auth)
     }
 

@@ -1,21 +1,45 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import DeleteModal from './DeleteModal';
 import OrderRow from './OrderRow';
 
 const MyOrders = () => {
+    const navigate = useNavigate()
     const [deleteOrder, setDeleteOrder] = useState(null)
     const [user, loading] = useAuthState(auth)
+    const [isReload, setIsReload] = useState()
     const [orders, setOrders] = useState([])
+
+    const handleLogout = () => {
+        localStorage.removeItem('accessToken')
+        signOut(auth)
+    }
 
     const email = user?.email
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders?email=${email}`)
-            .then(res => res.json())
-            .then(data => setOrders(data))
-    }, [])
+        fetch(`http://localhost:5000/myOrders?email=${email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    handleLogout()
+                    navigate('/')
+                }
+                return res.json()
+            })
+            .then(data => {
+
+                setIsReload(!isReload)
+                setOrders(data)
+            })
+    }, [isReload])
 
     return (
         <div className='pt-3 px-3'>
@@ -32,7 +56,7 @@ const MyOrders = () => {
                             <th>Quantity</th>
                             <th>Total Price</th>
                             <th>Transaction Id</th>
-                            <th>Favorite Color</th>
+                            <th>Action</th>
                             <th>Favorite Color</th>
                         </tr>
                     </thead>
@@ -50,8 +74,9 @@ const MyOrders = () => {
             </div>
             {
                 deleteOrder && <DeleteModal
-                deleteOrder={deleteOrder}
-                setDeleteOrder={setDeleteOrder}
+                    deleteOrder={deleteOrder}
+                    setDeleteOrder={setDeleteOrder}
+                // setIsReload={setIsReload}
                 ></DeleteModal>
             }
         </div>
