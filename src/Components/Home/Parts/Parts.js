@@ -17,7 +17,7 @@ const Parts = () => {
 
             <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
                 {
-                    latestParts.map(part => <Part
+                    latestParts?.map(part => <Part
                         key={part._id}
                         part={part}
                     ></Part>)

@@ -1,9 +1,12 @@
 import React from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 
 const ManageAllOrders = () => {
+
     return (
         <div>
-            <h2>This is manage orders</h2>
+            
         </div>
     );
 };
