@@ -20,6 +20,7 @@ import AddProduct from './Components/Dashboard/AddProduct';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
 import ManageProducts from './Components/Dashboard/ManageProducts';
 import RequireAdmin from './Components/Shared/RequireAdmin';
+import LearnMoreInfo from './Components/Home/LearnMore/LearnMoreInfo';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
             <Purchase></Purchase>
           </ProtectedRoute>
         }></Route>
+        <Route path="/moreInfo" element={<LearnMoreInfo/>}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotFound />}></Route>

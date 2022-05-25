@@ -1,4 +1,5 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const ManageAllOrdersRow = ({ order, refetch, setDeleteOrders, index }) => {
     const {_id, userName, email, address, productsName, quantity, totalCost, paid, status } = order
@@ -8,7 +9,7 @@ const ManageAllOrdersRow = ({ order, refetch, setDeleteOrders, index }) => {
         const payment = {
             status: newStatus
         }
-        fetch(`http://localhost:5000/myOrders/${_id}`, {
+        fetch(`http://localhost:5000/orderStatus/${_id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json',
@@ -20,6 +21,7 @@ const ManageAllOrdersRow = ({ order, refetch, setDeleteOrders, index }) => {
                 .then(data => {
                     console.log(data)
                     refetch()
+                    toast.success("Order successfully shipped")
                 })
     }
 

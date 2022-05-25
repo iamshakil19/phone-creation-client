@@ -5,6 +5,8 @@ import Summary from './Summary/Summary';
 import Slider from './Slider/Slider';
 import Reviews from './Reviews/Reviews';
 import Parts from './Parts/Parts';
+import LearnMore from './LearnMore/LearnMore';
+import Countries from './Countries/Countries';
 
 const Home = () => {
     return (
@@ -12,8 +14,11 @@ const Home = () => {
             <Navbar></Navbar>
             <Slider></Slider>
             <Parts></Parts>
+            <Countries></Countries>
             <Summary></Summary>
+            <LearnMore></LearnMore>
             <Reviews></Reviews>
+
             <Footer></Footer>
         </div>
     );
