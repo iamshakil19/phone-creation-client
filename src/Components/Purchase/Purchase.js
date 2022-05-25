@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Footer from '../Shared/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
@@ -26,7 +26,7 @@ const Purchase = () => {
         const email = event.target.email.value
         const quantity = event.target.quantity.value
         if (quantity < minimum || quantity > available) {
-             setDisabled(true)
+            setDisabled(true)
             toast.error(`Minimum order ${minimum} pieces and Maximum order ${available} pieces`)
             return
 
@@ -52,9 +52,17 @@ const Purchase = () => {
                 }
             })
     }
+
+    const navigate = useNavigate()
+    const navigateToOrder = () => {
+        navigate('/dashboard/myOrders')
+    }
     return (
         <div>
             <Navbar></Navbar>
+            <div className='pt-5 pl-5'>
+                <button onClick={navigateToOrder} className='block btn border-0 rounded-full'>Your Orders</button>
+            </div>
             <div className='grid grid-cols-1 lg:grid-cols-2'>
                 <div>
                     <h2 className='text-3xl lg:text-4xl my-5 font-bold text-center'>Parts Details</h2>

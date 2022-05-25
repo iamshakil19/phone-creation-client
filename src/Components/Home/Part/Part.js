@@ -12,16 +12,16 @@ const Part = ({ part }) => {
     }
     return (
         <div className=''>
-            <div class="card max-w-[320px] bg-base-100 shadow-xl mx-auto h-[590px]">
+            <div class="card max-w-[320px] bg-base-100 shadow-xl mx-auto h-[590px] relative border">
                 <figure><img src={img} alt="Shoes" className='w-[95%] rounded-xl' /></figure>
-                <div class="p-7">
+                <div class="p-7 ">
                     <h2 class="card-title">{name}</h2>
                     <p className='text-justify mb-3'><span className='font-bold'>Description:</span> {newText}</p>
                     <p><span className='font-bold'>Minimum Order:</span> <span className='text-blue-900 font-extrabold'>{minimum}</span></p>
                     <p><span className='font-bold'>Available:</span> <span className='text-blue-900 font-extrabold'>{available}</span></p>
                     <p><span className='font-bold'>Price:</span> $<span className='text-blue-800 font-extrabold'>{price}</span></p>
                     <div class="card-actions justify-end">
-                        <button onClick={() => navigateToPurchase(_id)} class="btn border-0">Purchase</button>
+                        <button onClick={() => navigateToPurchase(_id)} class="btn border-0 absolute bottom-5 right-5">Purchase</button>
                     </div>
                 </div>
             </div>

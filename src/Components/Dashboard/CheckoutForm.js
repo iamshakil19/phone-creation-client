@@ -12,6 +12,7 @@ const CheckoutForm = ({ order }) => {
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('')
     const { _id, totalCost, userName, email } = order
+    const status = "pending"
 
     useEffect(() => {
         if (totalCost) {
@@ -60,6 +61,7 @@ const CheckoutForm = ({ order }) => {
                 },
             },
         );
+        const status = "Pending"
         if (intentError) {
             setCardError(intentError?.message)
             setProcessing(false)
@@ -72,7 +74,8 @@ const CheckoutForm = ({ order }) => {
 
             const payment = {
                 order: _id,
-                transactionId: paymentIntent.id
+                transactionId: paymentIntent.id,
+                status: status
             }
             fetch(`http://localhost:5000/myOrders/${_id}`, {
                 method: "PATCH",
@@ -85,7 +88,6 @@ const CheckoutForm = ({ order }) => {
                 .then(res => res.json())
                 .then(data => {
                     setProcessing(false)
-                    console.log(data);
                 })
         }
     }

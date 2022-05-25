@@ -28,7 +28,6 @@ const MyProfile = () => {
     if (loading) {
         return <Loading></Loading>
     }
-    console.log(myData);
 
     return (
         <div className='px-5 mt-5'>
@@ -62,6 +61,7 @@ const MyProfile = () => {
                             <a href=""> <img className='w-8 mx-2' src={twitterLogo} alt="" /> </a>
                         </div>
                     </div>
+                    <div class="divider"></div>
                     <div className='grid grid-cols-1 md:grid-cols-2 mt-5'>
                         <div className='mb-3'>
                             <p className='font-bold'>Name</p>
