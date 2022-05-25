@@ -66,9 +66,9 @@ const Purchase = () => {
                             <div>
                                 <h1 class="text-2xl lg:text-3xl font-bold">{name}</h1>
                                 <p className='w-60 md:w-96 text-justify mt-2'><span className='font-bold text-lg'>Description: </span>{text}</p>
-                                <p className=' mt-2'><span className='font-bold'>Minimum Order: </span>{minimum} pieces</p>
-                                <p className=' mt-1'><span className='font-bold'>Available: </span>{available} pieces</p>
-                                <p className=' mt-1'><span className='font-bold'>Price: </span>${price} per piece</p>
+                                <p className=' mt-2'><span className='font-bold'>Minimum Order: </span><span className='text-blue-900 font-extrabold'>{minimum}</span> pieces</p>
+                                <p className=' mt-1'><span className='font-bold'>Available: </span><span className='text-blue-900 font-extrabold'>{available}</span> pieces</p>
+                                <p className=' mt-1'><span className='font-bold'>Price: </span>$<span className='text-blue-900 font-extrabold'>{price}</span> per piece</p>
                             </div>
                         </div>
                     </div>
