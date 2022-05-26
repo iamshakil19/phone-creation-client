@@ -4,9 +4,9 @@ import toast from 'react-hot-toast';
 import auth from '../../firebase.init';
 
 const DeleteProductModal = ({ deleteProducts, setDeleteProducts, refetch }) => {
-    const {_id} = deleteProducts
+    const { _id } = deleteProducts
     const handleDeleteProducts = () => {
-        const url = `http://localhost:5000/parts/${_id}`;
+        const url = `https://dry-gorge-94241.herokuapp.com/parts/${_id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -16,7 +16,7 @@ const DeleteProductModal = ({ deleteProducts, setDeleteProducts, refetch }) => {
                     refetch()
                     setDeleteProducts(null)
                     toast.success("Products Deleted")
-                    
+
                 }
             })
     }

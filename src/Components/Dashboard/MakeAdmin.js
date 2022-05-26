@@ -5,11 +5,12 @@ import AdminDeleteModal from './AdminDeleteModal';
 import MakeAdminRow from './MakeAdminRow';
 const MakeAdmin = () => {
     const [deleteUser, setDeleteUser] = useState(null)
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://dry-gorge-94241.herokuapp.com/users', {
         method: 'GET',
         headers: {
-            'authorization': `Bearer ${localStorage.getItem('accessToken')}`}
-        }).then(res => res.json()))
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>
@@ -44,9 +45,9 @@ const MakeAdmin = () => {
             </div>
             {
                 deleteUser && <AdminDeleteModal
-                deleteUser={deleteUser}
-                setDeleteUser={setDeleteUser}
-                refetch={refetch}
+                    deleteUser={deleteUser}
+                    setDeleteUser={setDeleteUser}
+                    refetch={refetch}
                 ></AdminDeleteModal>
             }
         </div>

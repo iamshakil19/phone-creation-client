@@ -4,9 +4,9 @@ import toast from 'react-hot-toast';
 import auth from '../../firebase.init';
 
 const AdminDeleteModal = ({ deleteUser, setDeleteUser, refetch }) => {
-    const {_id} = deleteUser
+    const { _id } = deleteUser
     const handleDeleteOrder = () => {
-        const url = `http://localhost:5000/user/${_id}`;
+        const url = `https://dry-gorge-94241.herokuapp.com/user/${_id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -16,7 +16,7 @@ const AdminDeleteModal = ({ deleteUser, setDeleteUser, refetch }) => {
                     refetch()
                     setDeleteUser(null)
                     toast.success("User Deleted")
-                    
+
                 }
             })
     }

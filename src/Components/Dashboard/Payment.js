@@ -9,7 +9,7 @@ const stripePromise = loadStripe('pk_test_51L1AeqHfb8VoLvD9DHCrdxFn3s1pdETuX5YXG
 const Payment = () => {
     const { orderId } = useParams()
     const [order, setOrder] = useState({})
-    const url = `http://localhost:5000/order/${orderId}`
+    const url = `https://dry-gorge-94241.herokuapp.com/order/${orderId}`
 
     useEffect(() => {
         fetch(url)
@@ -29,8 +29,8 @@ const Payment = () => {
 
                     <div className='mt-5'>
                         <Elements stripe={stripePromise}>
-                            <CheckoutForm 
-                            order={order}
+                            <CheckoutForm
+                                order={order}
                             />
                         </Elements>
                     </div>

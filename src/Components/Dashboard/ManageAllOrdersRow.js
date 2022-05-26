@@ -2,27 +2,27 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 const ManageAllOrdersRow = ({ order, refetch, setDeleteOrders, index }) => {
-    const {_id, userName, email, address, productsName, quantity, totalCost, paid, status } = order
+    const { _id, userName, email, address, productsName, quantity, totalCost, paid, status } = order
 
     let newStatus = "Shipped"
     const handleStatus = () => {
         const payment = {
             status: newStatus
         }
-        fetch(`http://localhost:5000/orderStatus/${_id}`, {
-                method: "PATCH",
-                headers: {
-                    'content-type': 'application/json',
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                },
-                body: JSON.stringify(payment)
+        fetch(`https://dry-gorge-94241.herokuapp.com/orderStatus/${_id}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(payment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                refetch()
+                toast.success("Order successfully shipped")
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    refetch()
-                    toast.success("Order successfully shipped")
-                })
     }
 
     return (
@@ -36,11 +36,11 @@ const ManageAllOrdersRow = ({ order, refetch, setDeleteOrders, index }) => {
             <td>{totalCost}</td>
             <td>
                 {
-                 (paid === true) ? <div>
-                     {
-                         status === "Shipped" ? <span className='font-bold text-emerald-500'>{status}</span> : <span className='font-bold text-yellow-500'>{status}</span>
-                     }
-                 </div> : <span className='font-bold text-red-600'>Not paid</span>
+                    (paid === true) ? <div>
+                        {
+                            status === "Shipped" ? <span className='font-bold text-emerald-500'>{status}</span> : <span className='font-bold text-yellow-500'>{status}</span>
+                        }
+                    </div> : <span className='font-bold text-red-600'>Not paid</span>
                 }
             </td>
             <td>

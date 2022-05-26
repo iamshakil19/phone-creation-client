@@ -18,43 +18,43 @@ const AddProduct = () => {
             method: 'POST',
             body: formData
         })
-        .then(res => res.json())
-        .then(result => {
-            console.log(result);
-            if (result.success) {
-                const img = result.data.url;
-                const products = {
-                    name: data.name,
-                    minimum: data.minimum,
-                    available: data.available,
-                    price: data.price,
-                    text: data.text,
-                    img: img
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                if (result.success) {
+                    const img = result.data.url;
+                    const products = {
+                        name: data.name,
+                        minimum: data.minimum,
+                        available: data.available,
+                        price: data.price,
+                        text: data.text,
+                        img: img
+                    }
+
+                    fetch('https://dry-gorge-94241.herokuapp.com/parts', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(products)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            console.log(inserted);
+                            if (inserted.insertedId) {
+                                toast.success('Product successfully added')
+                                reset();
+                            }
+                            else {
+                                toast.error('Failed to add products');
+                            }
+                        })
+
                 }
 
-                fetch('http://localhost:5000/parts', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json',
-                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    },
-                    body: JSON.stringify(products)
-                })
-                    .then(res => res.json())
-                    .then(inserted => {
-                        console.log(inserted);
-                        if (inserted.insertedId) {
-                            toast.success('Product successfully added')
-                            reset();
-                        }
-                        else {
-                            toast.error('Failed to add products');
-                        }
-                    })
-
-            }
-
-        })
+            })
     };
     return (
         <div className='px-5 flex justify-center'>

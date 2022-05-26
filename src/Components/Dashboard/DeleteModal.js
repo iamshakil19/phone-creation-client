@@ -4,9 +4,9 @@ import toast from 'react-hot-toast';
 import auth from '../../firebase.init';
 
 const DeleteModal = ({ deleteOrder, setDeleteOrder }) => {
-    const {_id} = deleteOrder
+    const { _id } = deleteOrder
     const handleDeleteOrder = () => {
-        const url = `http://localhost:5000/myOrders/${_id}`;
+        const url = `https://dry-gorge-94241.herokuapp.com/myOrders/${_id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -15,7 +15,7 @@ const DeleteModal = ({ deleteOrder, setDeleteOrder }) => {
                 if (data.deletedCount > 0) {
                     setDeleteOrder(null)
                     toast.success("Order Cancelled")
-                    
+
                 }
             })
     }

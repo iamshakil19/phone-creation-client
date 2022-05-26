@@ -7,7 +7,7 @@ import OrderDeleteModal from './OrderDeleteModal';
 const ManageAllOrders = () => {
     const [deleteOrders, setDeleteOrders] = useState(null)
 
-    const { data: orders, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/orders', {
+    const { data: orders, isLoading, refetch } = useQuery('users', () => fetch('https://dry-gorge-94241.herokuapp.com/orders', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -50,8 +50,8 @@ const ManageAllOrders = () => {
             </div>
             {
                 deleteOrders && <OrderDeleteModal
-                deleteOrders={deleteOrders}
-                setDeleteOrders={setDeleteOrders}
+                    deleteOrders={deleteOrders}
+                    setDeleteOrders={setDeleteOrders}
                     refetch={refetch}
                 ></OrderDeleteModal>
             }

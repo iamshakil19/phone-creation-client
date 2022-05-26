@@ -4,14 +4,14 @@ import toast from 'react-hot-toast';
 const MakeAdminRow = ({ user, index, refetch, setDeleteUser }) => {
     const { email, role } = user
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://dry-gorge-94241.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => {
-                if(res.status === 403){
+                if (res.status === 403) {
                     toast.error('failed to make an admin')
                 }
                 return res.json()
@@ -35,7 +35,7 @@ const MakeAdminRow = ({ user, index, refetch, setDeleteUser }) => {
                 }
             </td>
             <td>
-            <label onClick={() => setDeleteUser(user)} for="admin-delete-modal" class="btn btn-xs bg-red-500 border-0 hover:bg-red-600">Delete</label>
+                <label onClick={() => setDeleteUser(user)} for="admin-delete-modal" class="btn btn-xs bg-red-500 border-0 hover:bg-red-600">Delete</label>
             </td>
         </tr>
     );

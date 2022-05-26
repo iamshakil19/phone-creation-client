@@ -22,10 +22,10 @@ const UpdateProfileModal = ({ UpdateProfileModal, setUpdateProfile, refetch }) =
         const facebook = event.target.facebook.value
         const linkedin = event.target.number.value
 
-        const profileData = {number, age, presentAd, permanentAd, education, point, year, institute, relation, profession, facebook, linkedin}
+        const profileData = { number, age, presentAd, permanentAd, education, point, year, institute, relation, profession, facebook, linkedin }
         console.log(profileData);
-        
-        fetch(`http://localhost:5000/user/${firebaseUser.email}`, {
+
+        fetch(`https://dry-gorge-94241.herokuapp.com/user/${firebaseUser.email}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',
@@ -50,7 +50,7 @@ const UpdateProfileModal = ({ UpdateProfileModal, setUpdateProfile, refetch }) =
                     <label for="update-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 class="font-bold text-lg mb-3">Update Your Profile</h3>
                     <form onSubmit={handleUpdate} className="">
-                        <div  className='grid grid-cols-2 gap-3'>
+                        <div className='grid grid-cols-2 gap-3'>
                             <div>
                                 <label htmlFor="number">Number</label>
                                 <br />
@@ -113,7 +113,7 @@ const UpdateProfileModal = ({ UpdateProfileModal, setUpdateProfile, refetch }) =
                                 <input name='linkedin' type="text" id='' placeholder='Linkedin profile link' className='border-2 border-dotted rounded-md focus:outline-none p-1 mt-1' />
                             </div>
                         </div>
-                        <input className='btn btn-sm bottom-0 mt-4 float-right' type="submit" value="Update"/>
+                        <input className='btn btn-sm bottom-0 mt-4 float-right' type="submit" value="Update" />
                     </form>
                 </div>
             </div>
