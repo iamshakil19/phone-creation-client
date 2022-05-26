@@ -25,7 +25,7 @@ const MyProfile = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-const {number, age, presentAd, permanentAd, education, gpa, year, institute, relation, profession, facebook, linkedin} = user
+const {number, age, presentAd, permanentAd, education, point, year, institute, relation, profession, facebook, linkedin} = user
 
 
     return (
@@ -83,7 +83,7 @@ const {number, age, presentAd, permanentAd, education, gpa, year, institute, rel
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>GPA</p>
-                            <p className='text-[16px]'>{ gpa ? gpa : <span className='text-sm'>Not available</span> }</p>
+                            <p className='text-[16px]'>{ point ? point : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Passing Year</p>

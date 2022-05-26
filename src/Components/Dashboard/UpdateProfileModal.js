@@ -14,7 +14,7 @@ const UpdateProfileModal = ({ UpdateProfileModal, setUpdateProfile, refetch }) =
         const presentAd = event.target.presentAd.value
         const permanentAd = event.target.permanentAd.value
         const education = event.target.education.value
-        const gpa = event.target.gpa.value
+        const point = event.target.point.value
         const year = event.target.year.value
         const institute = event.target.institute.value
         const relation = event.target.relation.value
@@ -22,7 +22,8 @@ const UpdateProfileModal = ({ UpdateProfileModal, setUpdateProfile, refetch }) =
         const facebook = event.target.facebook.value
         const linkedin = event.target.number.value
 
-        const profileData = {number, age, presentAd, permanentAd, education, gpa, year, institute, relation, profession, facebook, linkedin}
+        const profileData = {number, age, presentAd, permanentAd, education, point, year, institute, relation, profession, facebook, linkedin}
+        console.log(profileData);
         
         fetch(`http://localhost:5000/user/${firebaseUser.email}`, {
             method: "PATCH",
@@ -79,7 +80,7 @@ const UpdateProfileModal = ({ UpdateProfileModal, setUpdateProfile, refetch }) =
                             <div>
                                 <label htmlFor="gpa">GPA</label>
                                 <br />
-                                <input name='gpa' type="text" id='gpa' placeholder='GPA' className='border-2 border-dotted rounded-md focus:outline-none p-1 mt-1' />
+                                <input name='point' type="text" id='gpa' placeholder='GPA' className='border-2 border-dotted rounded-md focus:outline-none p-1 mt-1' />
                             </div>
                             <div>
                                 <label htmlFor="year">Passing Year</label>

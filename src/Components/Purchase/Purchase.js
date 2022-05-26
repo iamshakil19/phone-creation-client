@@ -61,7 +61,7 @@ const Purchase = () => {
         <div>
             <Navbar></Navbar>
             <div className='pt-5 pl-5'>
-                <button onClick={navigateToOrder} className='block btn border-0 rounded-full'>Your Orders</button>
+                <button onClick={navigateToOrder} className='block btn btn-sm border-0 rounded-full'>Your Orders</button>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2'>
                 <div>

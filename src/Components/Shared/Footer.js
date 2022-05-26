@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import fbLogo from '../../Assets/fb.png'
+import linkedIn from '../../Assets/in.png'
+import twitter from '../../Assets/twitter.png'
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
@@ -10,28 +13,28 @@ const Footer = () => {
                 <div className='sm:flex sm:justify-center'>
                     <div>
                         <h4 className='text-white font-bold text-[14px] mb-5 uppercase'>The Phone Creation</h4>
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Us</Link>
                         <br />
                         <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>News & articles</Link>
                         <br />
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>Our Offers</Link>
                         <br />
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>Custom Order</Link>
                         <br />
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-8'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-8'>Support</Link>
                         <br />
                     </div>
                 </div>
                 <div className='sm:flex sm:justify-center'>
                     <div>
                         <h4 className='text-white font-bold text-[14px] mb-5 uppercase'>Explore Phone Creation</h4>
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>Sale</Link>
                         <br />
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>Our Next Target</Link>
                         <br />
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>Achievement</Link>
                         <br />
-                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>About Brand</Link>
+                        <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-2'>Subscribers</Link>
                         <br />
                         <Link to={"/"} className='text-gray-400 hover:text-gray-200 inline-block mb-8'>About Brand</Link>
                         <br />
@@ -63,11 +66,15 @@ const Footer = () => {
                 </div>
             </div>
             <div style={{ borderBottom: "1px solid gray" }} class=" mx-auto my-5 lg:mx-24 mx-8"></div>
-            <div className=' text-gray-400 lg:px-24 px-8'>
+            <div className=' text-gray-400 lg:px-24 px-8 lg:flex justify-around items-center'>
                 <div>
-                    <p>Copyright © {currentYear} - All right reserved</p>
+                    <p className='lg:text-center'>Copyright © {currentYear} - All right reserved</p>
                 </div>
-
+                <div className='flex mt-5 lg:mt-0 justify-center'>
+                    <img className='bg-white rounded-full w-8 mx-3' src={fbLogo} alt="" />
+                    <img className='bg-white rounded-full w-8 mx-3' src={linkedIn} alt="" />
+                    <img className='bg-white rounded-full w-8 mx-3' src={twitter} alt="" />
+                </div>
             </div>
         </div>
     );
