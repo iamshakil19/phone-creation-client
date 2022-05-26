@@ -7,58 +7,48 @@ import inLogo from '../../Assets/in.png'
 import twitterLogo from '../../Assets/twitter.png'
 import placeholder from '../../Assets/placeholder.jpg'
 import Loading from '../Shared/Loading';
+import UpdateProfileModal from './UpdateProfileModal';
+import { useQuery } from 'react-query';
 
 const MyProfile = () => {
+    const [updateProfile, setUpdateProfile] = useState(null)
+    const [firebaseUser, loading] = useAuthState(auth)
+    const { photoURL, displayName, email } = firebaseUser
 
-    const [user, loading] = useAuthState(auth)
-    const { photoURL, displayName, email } = user
-    const [myData, setMyData] = useState({})
+    const { data: user, isLoading, refetch } = useQuery('user', () => fetch(`http://localhost:5000/user/${email}`, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()))
 
-    const { myEmail, age, education, facebook, gpa, institute, linkedin, name, pYear, permanentA, phone, presentA, profession, relation, twitter } = myData
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data[0])
-                setMyData(data[0])
-            })
-    }, [user])
-
-    if (loading) {
+    if (isLoading) {
         return <Loading></Loading>
     }
+const {number, age, presentAd, permanentAd, education, gpa, year, institute, relation, profession, facebook, linkedin} = user
+
 
     return (
         <div className='px-5 mt-5'>
             <h2 className='text-2xl font-bold text-slate-700'>My Profile</h2>
             <div class="divider"></div>
 
-            <label for="my-modal" class="modal-button cursor-pointer"><img src={editLogo} alt="" className='w-5 inline' /><span className='ml-1 font-bold'>Edit</span></label>
-
+            <label onClick={() => setUpdateProfile(user)} for="update-modal" class="modal-button cursor-pointer"><img src={editLogo} alt="" className='w-5 inline' /><span className='ml-1 font-bold'>Edit</span></label>
 
             <div className='mx-auto w-72 md:w-[500px]'>
                 <div>
                     <div className='grid grid-cols-2'>
                         <div class="avatar">
                             <div class="w-24 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
-                                {
-                                    photoURL ?
-                                        <img src={photoURL} alt="" />
-                                        :
-                                        <img src={placeholder} alt="" />
-                                }
+                                <img src={
+                                    photoURL ? photoURL : placeholder
+                                } alt="" />
                             </div>
                         </div>
                         <div className='flex items-center'>
-                            {
-                                facebook ?
-                                    <a href={facebook}> <img className='w-8 mx-2' src={fbLogo} alt="" /> </a>
-                                    :
-                                    <a href=""> <img className='w-8 mx-2' src={fbLogo} alt="" /> </a>
-                            }
-                            <a href=""> <img className='w-8 mx-2' src={inLogo} alt="" /> </a>
-                            <a href=""> <img className='w-8 mx-2' src={twitterLogo} alt="" /> </a>
+                            <a href={ facebook ? facebook : 'https://www.facebook.com/' }> <img className='w-8 mx-2' src={fbLogo} alt="" /> </a>
+                            <a href={ linkedin ? linkedin : "https://www.linkedin.com/" }> <img className='w-8 mx-2' src={inLogo} alt="" /> </a>
+                            <a href="https://twitter.com"> <img className='w-8 mx-2' src={twitterLogo} alt="" /> </a>
                         </div>
                     </div>
                     <div class="divider"></div>
@@ -73,52 +63,54 @@ const MyProfile = () => {
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Phone</p>
-                            <p className='text-[16px]'>
-                                {
-phone ? phone : "..."
-                                }
-                            </p>
+                            <p className='text-[16px]'>{ number ? number : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Age</p>
-                            <p className='text-[16px]'>23</p>
+                            <p className='text-[16px]'>{ age ? age : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Present Address</p>
-                            <p className='text-[16px]'>Mirpur 13, Dhaka</p>
+                            <p className='text-[16px]'>{ presentAd ? presentAd : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Permanent Address</p>
-                            <p className='text-[16px]'>Barishal, Bangladesh</p>
+                            <p className='text-[16px]'>{ permanentAd ? permanentAd : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Education Level</p>
-                            <p className='text-[16px]'>SSC</p>
+                            <p className='text-[16px]'>{ education ? education : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>GPA</p>
-                            <p className='text-[16px]'>3.92</p>
+                            <p className='text-[16px]'>{ gpa ? gpa : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Passing Year</p>
-                            <p className='text-[16px]'>2017</p>
+                            <p className='text-[16px]'>{ year ? year : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Institute Name</p>
-                            <p className='text-[16px]'>Bagdha High School and collage</p>
+                            <p className='text-[16px]'>{ institute ? institute : <span className='text-sm'>Not available</span> }</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Relationship</p>
-                            <p className='text-[16px]'>Single</p>
+                            <p className='text-[16px]'>{ relation ? relation : <span className='text-sm'>Not available</span>}</p>
                         </div>
                         <div className='mb-3'>
                             <p className='font-bold'>Profession</p>
-                            <p className='text-[16px]'>Developer</p>
+                            <p className='text-[16px]'>{ profession ? profession : <span className='text-sm'>Not available</span> }</p>
                         </div>
                     </div>
                 </div>
             </div>
-
+            {
+                updateProfile && <UpdateProfileModal
+                    updateProfile={updateProfile}
+                    setUpdateProfile={setUpdateProfile}
+                    refetch={refetch}
+                ></UpdateProfileModal>
+            }
         </div>
     );
 };

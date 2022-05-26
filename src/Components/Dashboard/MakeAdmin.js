@@ -5,7 +5,7 @@ import AdminDeleteModal from './AdminDeleteModal';
 import MakeAdminRow from './MakeAdminRow';
 const MakeAdmin = () => {
     const [deleteUser, setDeleteUser] = useState(null)
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`}
