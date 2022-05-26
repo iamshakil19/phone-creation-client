@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Part from '../Part/Part';
 
 const Parts = () => {
+    const navigate = useNavigate()
     const [parts, setParts] = useState([])
 
     useEffect(() => {
-        fetch('https://dry-gorge-94241.herokuapp.com/parts')
+        fetch('https://dry-gorge-94241.herokuapp.com/parts', {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setParts(data))
     }, [])

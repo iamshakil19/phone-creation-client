@@ -86,7 +86,7 @@ const Purchase = () => {
                     <h2 className='text-3xl lg:text-4xl my-5 font-bold text-center'>Order Form</h2>
 
                     <form onSubmit={handleOrder} className='flex justify-center mb-16'>
-                        <div class="card w-96 bg-base-100 shadow-xl">
+                        <div class="card w-96 bg-base-100 shadow-xl border">
                             <div class="card-body">
                                 <h2 class="card-title">{name}</h2>
                                 <div class="form-control w-full max-w-xs">

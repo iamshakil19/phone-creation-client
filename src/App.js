@@ -47,7 +47,7 @@ function App() {
             <Purchase></Purchase>
           </ProtectedRoute>
         }></Route>
-        <Route path="/moreInfo" element={<LearnMoreInfo/>}></Route>
+        <Route path="/aboutUs" element={<LearnMoreInfo/>}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotFound />}></Route>

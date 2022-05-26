@@ -25,6 +25,7 @@ const ManageProducts = () => {
                             <th>SL</th>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>

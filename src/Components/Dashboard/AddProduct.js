@@ -8,9 +8,7 @@ const AddProduct = () => {
     const imgStorageKey = 'e0a4694ec8b6bd581ad12f0cf38969b4';
 
     const onSubmit = async data => {
-        console.log(data);
         const image = data.img[0];
-        console.log(image);
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
@@ -20,7 +18,6 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 if (result.success) {
                     const img = result.data.url;
                     const products = {

@@ -31,6 +31,7 @@ const location = useLocation()
                             <li><ActiveRoute to={'/home'}>Home</ActiveRoute></li>
                             <li><ActiveRoute to="/blogs">Blogs</ActiveRoute></li>
                             <li><ActiveRoute to="/portfolio">Portfolio</ActiveRoute></li>
+                            <li><ActiveRoute to="/aboutUs">About us</ActiveRoute></li>
                             <>
                                 {
                                     user ?
@@ -51,6 +52,7 @@ const location = useLocation()
                         <li><ActiveRoute to={'/home'} className="text-[17px]">Home</ActiveRoute></li>
                         <li><ActiveRoute to="/blogs" className="text-[17px]">Blogs</ActiveRoute></li>
                         <li><ActiveRoute to="/portfolio" className="text-[17px]">Portfolio</ActiveRoute></li>
+                        <li><ActiveRoute to="/aboutUs" className="text-[17px]">About us</ActiveRoute></li>
                         <>
                             {
                                 user ?

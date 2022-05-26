@@ -2,7 +2,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 const MakeAdminRow = ({ user, index, refetch, setDeleteUser }) => {
-    const { email, role } = user
+    const { _id, email, role } = user
     const makeAdmin = () => {
         fetch(`https://dry-gorge-94241.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
@@ -26,7 +26,7 @@ const MakeAdminRow = ({ user, index, refetch, setDeleteUser }) => {
     return (
         <tr class="hover">
             <th>{index}</th>
-            <td>{user.name}</td>
+            <td>{_id}</td>
             <td>{user.email}</td>
             <td>
                 {

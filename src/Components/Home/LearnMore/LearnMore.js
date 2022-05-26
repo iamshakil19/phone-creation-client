@@ -6,7 +6,7 @@ const LearnMore = () => {
     const navigate = useNavigate()
 
     const navigateToInfo = () => {
-navigate('/moreInfo')
+navigate('/aboutUs')
         }
     return (
         <div

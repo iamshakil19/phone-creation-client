@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import ManageAllOrdersRow from './ManageAllOrdersRow';
 import OrderDeleteModal from './OrderDeleteModal';
 
 const ManageAllOrders = () => {
     const [deleteOrders, setDeleteOrders] = useState(null)
-
+    const navigate = useNavigate()
     const { data: orders, isLoading, refetch } = useQuery('users', () => fetch('https://dry-gorge-94241.herokuapp.com/orders', {
         method: 'GET',
         headers: {
-            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
 
