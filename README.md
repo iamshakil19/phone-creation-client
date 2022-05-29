@@ -2,14 +2,7 @@
 
 * Phone Creation [Live Link](https://assignment-12-50cc2.web.app/)
 
-* Phone Creation [Client Side Code Link](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-shakilahmed09)
-
-* Phone Creation [Server Side Code Link](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-shakilahmed09)
-
-
-## Admin Account
-### `admin12@gmail.com`
-### `adminadmin`
+* Phone Creation [Server Side Code Link](https://github.com/shakilahmed09/phone-creation-server)
 
 
 ## Website Feature
