@@ -3,7 +3,7 @@ import React from 'react';
 const Review = ({ review }) => {
     const { img, name, text, rating } = review
     return (
-        <div className='shadow-lg w-56 text-center p-5 mb-5 rounded-lg h-72 mx-auto'>
+        <div className='shadow-lg w-56 text-center p-5 mb-5 rounded-lg h-72 mx-auto' data-aos="fade-up">
             <div class="avatar">
                 <div class="w-14 rounded-full">
                     <img src={img} alt="" />

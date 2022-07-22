@@ -7,7 +7,7 @@ const Parts = () => {
     const [parts, setParts] = useState([])
 
     useEffect(() => {
-        fetch('https://dry-gorge-94241.herokuapp.com/parts', {
+        fetch('http://localhost:5000/parts', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -29,6 +29,7 @@ const Parts = () => {
                         part={part}
                     ></Part>)
                 }
+
             </div>
         </div>
     );

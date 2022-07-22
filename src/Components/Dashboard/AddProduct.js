@@ -29,7 +29,7 @@ const AddProduct = () => {
                         img: img
                     }
 
-                    fetch('https://dry-gorge-94241.herokuapp.com/parts', {
+                    fetch('http://localhost:5000/parts', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

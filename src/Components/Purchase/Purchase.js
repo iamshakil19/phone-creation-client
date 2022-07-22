@@ -13,7 +13,7 @@ const Purchase = () => {
     const [parts, setParts] = useState([])
     const { img, name, minimum, available, price, text } = parts
     useEffect(() => {
-        const url = `https://dry-gorge-94241.herokuapp.com/parts/${partsId}`;
+        const url = `http://localhost:5000/parts/${partsId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setParts(data))
@@ -29,14 +29,13 @@ const Purchase = () => {
             setDisabled(true)
             toast.error(`Minimum order ${minimum} pieces and Maximum order ${available} pieces`)
             return
-
         }
         const totalCost = quantity * price
         const number = event.target.number.value
         const address = event.target.address.value
         const orderData = { userName, productsName, email, quantity, number, address, totalCost }
 
-        fetch('https://dry-gorge-94241.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

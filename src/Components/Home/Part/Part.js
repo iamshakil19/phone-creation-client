@@ -11,7 +11,7 @@ const Part = ({ part }) => {
         navigate(`/purchase/${_id}`)
     }
     return (
-        <div className=''>
+        <div className='' data-aos="fade-up">
             <div class="card max-w-[320px] bg-base-100 shadow-xl mx-auto h-[590px] relative border">
                 <figure><img src={img} alt="Shoes" className='w-[95%] rounded-xl' /></figure>
                 <div class="p-7 ">

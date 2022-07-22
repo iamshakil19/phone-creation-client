@@ -14,7 +14,7 @@ const AddReview = () => {
         const reviewData = { rating, text, img, name }
         console.log(reviewData);
 
-        fetch('https://dry-gorge-94241.herokuapp.com/reviews', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
