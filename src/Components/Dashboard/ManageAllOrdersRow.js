@@ -9,7 +9,7 @@ const ManageAllOrdersRow = ({ order, refetch, setDeleteOrders, index }) => {
         const payment = {
             status: newStatus
         }
-        fetch(`http://localhost:5000/orderStatus/${_id}`, {
+        fetch(`https://dry-gorge-94241.herokuapp.com/orderStatus/${_id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',

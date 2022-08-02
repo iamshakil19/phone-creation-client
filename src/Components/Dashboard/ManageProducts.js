@@ -6,7 +6,7 @@ import ManageProductsRow from './ManageProductsRow';
 
 const ManageProducts = () => {
     const [deleteProducts, setDeleteProducts] = useState(null)
-    const { data: parts, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/parts', {
+    const { data: parts, isLoading, refetch } = useQuery('users', () => fetch('https://dry-gorge-94241.herokuapp.com/parts', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

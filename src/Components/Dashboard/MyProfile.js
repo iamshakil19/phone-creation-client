@@ -15,7 +15,7 @@ const MyProfile = () => {
     const [firebaseUser, loading] = useAuthState(auth)
     const { photoURL, displayName, email } = firebaseUser
 
-    const { data: user, isLoading, refetch } = useQuery('user', () => fetch(`http://localhost:5000/user/${email}`, {
+    const { data: user, isLoading, refetch } = useQuery('user', () => fetch(`https://dry-gorge-94241.herokuapp.com/user/${email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

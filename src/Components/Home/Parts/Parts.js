@@ -7,7 +7,7 @@ const Parts = () => {
     const [parts, setParts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/parts', {
+        fetch('https://dry-gorge-94241.herokuapp.com/parts', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
