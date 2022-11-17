@@ -5,7 +5,7 @@ import AdminDeleteModal from './AdminDeleteModal';
 import MakeAdminRow from './MakeAdminRow';
 const MakeAdmin = () => {
     const [deleteUser, setDeleteUser] = useState(null)
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://dry-gorge-94241.herokuapp.com/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://phone-creation-server.up.railway.app/users', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -25,7 +25,7 @@ const UpdateProfileModal = ({ UpdateProfileModal, setUpdateProfile, refetch }) =
         const profileData = { number, age, presentAd, permanentAd, education, point, year, institute, relation, profession, facebook, linkedin }
         console.log(profileData);
 
-        fetch(`https://dry-gorge-94241.herokuapp.com/user/${firebaseUser.email}`, {
+        fetch(`https://phone-creation-server.up.railway.app/user/${firebaseUser.email}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',

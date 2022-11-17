@@ -9,7 +9,7 @@ const stripePromise = loadStripe('pk_test_51L1AeqHfb8VoLvD9DHCrdxFn3s1pdETuX5YXG
 const Payment = () => {
     const { orderId } = useParams()
     const [order, setOrder] = useState({})
-    const url = `https://dry-gorge-94241.herokuapp.com/order/${orderId}`
+    const url = `https://phone-creation-server.up.railway.app/order/${orderId}`
 
     useEffect(() => {
         fetch(url)

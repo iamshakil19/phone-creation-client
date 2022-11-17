@@ -13,7 +13,7 @@ const Purchase = () => {
     const [parts, setParts] = useState([])
     const { img, name, minimum, available, price, text } = parts
     useEffect(() => {
-        const url = `https://dry-gorge-94241.herokuapp.com/parts/${partsId}`;
+        const url = `https://phone-creation-server.up.railway.app/parts/${partsId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setParts(data))
@@ -35,7 +35,7 @@ const Purchase = () => {
         const address = event.target.address.value
         const orderData = { userName, productsName, email, quantity, number, address, totalCost }
 
-        fetch('https://dry-gorge-94241.herokuapp.com/orders', {
+        fetch('https://phone-creation-server.up.railway.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 const AdminDeleteModal = ({ deleteUser, setDeleteUser, refetch }) => {
     const { _id } = deleteUser
     const handleDeleteOrder = () => {
-        const url = `https://dry-gorge-94241.herokuapp.com/user/${_id}`;
+        const url = `https://phone-creation-server.up.railway.app/user/${_id}`;
         fetch(url, {
             method: 'DELETE'
         })

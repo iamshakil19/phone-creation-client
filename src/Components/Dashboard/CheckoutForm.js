@@ -16,7 +16,7 @@ const CheckoutForm = ({ order }) => {
 
     useEffect(() => {
         if (totalCost) {
-            fetch('https://dry-gorge-94241.herokuapp.com/create-payment-intent', {
+            fetch('https://phone-creation-server.up.railway.app/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -77,7 +77,7 @@ const CheckoutForm = ({ order }) => {
                 transactionId: paymentIntent.id,
                 status: status
             }
-            fetch(`https://dry-gorge-94241.herokuapp.com/myOrders/${_id}`, {
+            fetch(`https://phone-creation-server.up.railway.app/myOrders/${_id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json',
