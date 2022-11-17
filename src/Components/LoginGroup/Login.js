@@ -104,6 +104,7 @@ const Login = () => {
                             {
                                 signErrorMessage
                             }
+                            <p className='text-center text-orange-400'>Admin Account - admin@admin.com - 111111</p>
                             <input className='btn w-full max-w-xs rounded-3xl my-3' type="submit" value="Login" />
                             <p>Need an account? <Link className='text-primary' to={'/register'}>Register</Link></p>
                             <p onClick={handleForgotPassword} className='cursor-pointer text-primary '>Forgot password ?</p>
