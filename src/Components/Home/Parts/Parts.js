@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useQuery } from 'react-query';
 import Part from '../Part/Part';
 
 const Parts = () => {
-    const navigate = useNavigate()
-    const [parts, setParts] = useState([])
 
-    useEffect(() => {
-        fetch('https://phone-creation-server.up.railway.app/parts', {
-            method: 'GET',
-            headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => setParts(data))
-    }, [])
+    const { data: parts, isLoading } = useQuery(['allParts'], () => fetch('https://phone-creation-server.up.railway.app/parts', {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
+        .then(res => res.json()))
 
-    const latestParts = parts.slice(0, 6)
+    const latestParts = parts?.slice(0, 6)
+
+
     return (
         <div className='lg:px-24 mx-auto mb-24 mt-10 px-5'>
             <h2 className='md:text-4xl text-2xl mb-8 font-bold uppercase text-center'>We Provide</h2>
